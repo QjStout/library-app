@@ -11,13 +11,7 @@ const library = new Library();
 library.addBookToLibrary(iliad);
 library.addBookToLibrary(odyssey);
 library.addBookToLibrary(nineteenEightyFour);
-listCatalogue(library);
-
-function listCatalogue(library) {
-    library.catalogue.forEach(book => {
-        console.table(book);
-    });
-}
+library.displayCatalogue();
 
 function setDisplay(element, value = 'none') {
     element.style.display = value;
