@@ -2,6 +2,7 @@ import { Book } from './modules/book.js';
 import { Library } from './modules/library.js';
 
 const MODAL = document.getElementById('newBookModal');
+const FORM_ADD_BOOK = document.getElementById('add-book-form');
 
 attachEventListeners();
 
@@ -21,13 +22,24 @@ function setDisplay(element, value = 'none') {
 
 function attachEventListeners() {
     attachNewBookListener();
-    // attachSubmitListener();
+    FORM_ADD_BOOK.onsubmit = submitNewBook;
 }
 
-// function attachSubmitListener() {
-//     document.getElementById('submit-btn')
-//         .addEventListener('click', sub);
-// }
+function submitNewBook(e) {
+    e.preventDefault();
+    const newBook = new Book(...getFormInput());
+    library.addBookToLibrary(newBook);
+    library.displayCatalogue();
+    closeModal();
+}
+
+function getFormInput() {
+    const title = document.getElementById('form-title').value;
+    const author = document.getElementById('form-author').value;
+    const pages = document.getElementById('form-pages').value;
+    const read = document.getElementById('form-read').value;
+    return [title, author, pages, read];
+}
 
 function attachNewBookListener() {
     document.getElementById('new-book-btn')
@@ -35,11 +47,17 @@ function attachNewBookListener() {
     function newBookBtnHandler() {
         setDisplay(MODAL, 'flex');
         MODAL.addEventListener('mousedown', modalClickOffHandler);
+        FORM_ADD_BOOK.reset();
     }
-    function modalClickOffHandler(e) {
-        if (e.target == MODAL) {
-            MODAL.removeEventListener('mousedown', modalClickOffHandler);
-            setDisplay(MODAL);
-        }
+}
+
+function modalClickOffHandler(e) {
+    if (e.target == MODAL) {
+        closeModal();
     }
+}
+
+function closeModal() {
+    MODAL.removeEventListener('mousedown', modalClickOffHandler);
+    setDisplay(MODAL);
 }
