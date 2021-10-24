@@ -3,6 +3,9 @@
 
 html, button {
     font-family: 'Montserrat', sans-serif;
+    background-color: ghostwhite;
+    color: rgb(75, 75, 75);
+    border-color: rgb(206, 206, 206);
 }
 
 body {
@@ -28,11 +31,14 @@ body {
 hr {
     width: 300px;
     margin-bottom: 1rem;
+    border: none;
+    border-top: 1px solid rgb(206, 206, 206);
 }
 
 .titles {
     font-family: 'Montserrat Alternates', sans-serif;
     margin: 0px;
+    color: rgb(95, 95, 95);
 }
 
 .modal {
@@ -54,14 +60,15 @@ table {
     margin-top: 30px;
     border-collapse: collapse;
     width: 500px;
-}
-
-td {
-    text-align: center;
+    text-align: left;
 }
 
 #table-header {
-    /* border-bottom: 1px solid black; */
+    border-bottom: 1px solid rgb(206, 206, 206);
+}
+
+td {
+    padding-top: 0.75rem;
 }
 
 .modal-content {
