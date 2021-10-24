@@ -11,6 +11,22 @@
 <body>
     <h1>My library</h1>
     <button id="new-book-btn">NEW BOOK</button>
+    
+    <div id="newBookModal" class="modal">
+        <div class="modal-content">
+            <h1>Add New Book</h1>
+            <form class="modal-content-form">
+                <input class="modal-content-input" type="text" id="form-title" placeholder="Title" required/>
+                <input class="modal-content-input" type="text" id="form-author" placeholder="Author" required/>
+                <input class="modal-content-input" type="number" id="form-pages" placeholder="Pages" required/>
+                <div class="modal-content-input" id="form-read-container">
+                    <label for="form-read">Read?</label>
+                    <input  type="checkbox" id="form-read"/>
+                </div>
+                <button class="modal-content-input" id="submit-btn" type="submit">Submit</button>
+            </form>            
+        </div>
+    </div>
     <table id="book-table">
         <tr id="table-header" class="table-row">
             <th>Title</th>

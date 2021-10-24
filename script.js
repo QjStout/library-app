@@ -1,6 +1,8 @@
 import { Book } from './modules/book.js';
 import { Library } from './modules/library.js';
 
+const MODAL = document.getElementById('newBookModal');
+
 attachEventListeners();
 
 const iliad = new Book('The Iliad', 'Homer', '722');
@@ -25,6 +27,13 @@ function attachNewBookListener() {
     document.getElementById('new-book-btn')
         .addEventListener('click', newBookBtnHandler);
     function newBookBtnHandler() {
-        setDisplay(document.getElementById('new-book-form'), 'block');
+        setDisplay(MODAL, 'flex');
+        MODAL.addEventListener('click', modalClickOffHandler);
+    }
+    function modalClickOffHandler(e) {
+        if (e.target == MODAL) {
+            MODAL.removeEventListener('click', modalClickOffHandler);
+            setDisplay(MODAL);
+        }
     }
 }
