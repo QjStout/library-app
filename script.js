@@ -21,18 +21,24 @@ function setDisplay(element, value = 'none') {
 
 function attachEventListeners() {
     attachNewBookListener();
+    // attachSubmitListener();
 }
+
+// function attachSubmitListener() {
+//     document.getElementById('submit-btn')
+//         .addEventListener('click', sub);
+// }
 
 function attachNewBookListener() {
     document.getElementById('new-book-btn')
         .addEventListener('click', newBookBtnHandler);
     function newBookBtnHandler() {
         setDisplay(MODAL, 'flex');
-        MODAL.addEventListener('click', modalClickOffHandler);
+        MODAL.addEventListener('mousedown', modalClickOffHandler);
     }
     function modalClickOffHandler(e) {
         if (e.target == MODAL) {
-            MODAL.removeEventListener('click', modalClickOffHandler);
+            MODAL.removeEventListener('mousedown', modalClickOffHandler);
             setDisplay(MODAL);
         }
     }
