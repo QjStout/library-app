@@ -8,18 +8,21 @@
     <script src="script.js" type="module"></script>
     <title>Vanilla Library</title>
 </head>
-<body>
-    <h1 class="titles">libq</h1>
-    <button id="new-book-btn">Add</button>
+<body class="flex-container-col">
+    <div class="header flex-container-col">
+        <h1 class="titles">Q-lib</h1>
+        <hr/>
+    </div>
     
+    <button id="new-book-btn">Add</button>
     <div id="newBookModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content flex-container-col">
             <h1>Add New Book</h1>
-            <form class="modal-content-form">
+            <form class="modal-content-form flex-container-col">
                 <input class="modal-content-input" type="text" id="form-title" placeholder="Title" required/>
                 <input class="modal-content-input" type="text" id="form-author" placeholder="Author" required/>
                 <input class="modal-content-input" type="number" id="form-pages" placeholder="Pages" required/>
-                <div class="modal-content-input" id="form-read-container">
+                <div class="modal-content-input flex-container-row" id="form-read-container">
                     <label for="form-read">Read?</label>
                     <input  type="checkbox" id="form-read"/>
                 </div>
