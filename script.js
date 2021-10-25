@@ -29,6 +29,7 @@ function submitNewBook(e) {
     e.preventDefault();
     const newBook = new Book(...getFormInput());
     library.addBookToLibrary(newBook);
+    library.displayClear();
     library.displayCatalogue();
     closeModal();
 }
