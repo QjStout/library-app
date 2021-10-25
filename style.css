@@ -142,8 +142,16 @@ td {
     text-align: center;
 }
 
+.td-read {
+    transition: all ease 50ms;
+}
+
 .td-read:hover {
     transform: scale(1.1);
     background-color: rgb(240, 240, 240);
     cursor: pointer;
+}
+
+.td-read:active {
+    transform: scale(1);
 }

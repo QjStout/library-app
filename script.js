@@ -26,11 +26,23 @@ function attachDeleteBtnEventListeners() {
     delBtns.forEach(btn => {
         btn.addEventListener('click', deleteBookBtn);
     });
+    attachReadToggleEventListeners();
     function deleteBookBtn() {
         const book = this.getAttribute('data-book');
         library.remBookFromLibrary(book);
         library.displayUpdate();
         attachDeleteBtnEventListeners();
+    }
+}
+
+function attachReadToggleEventListeners() {
+    const readEls = Array.from(document.getElementsByClassName('td-read'));
+    readEls.forEach(el => {
+        el.addEventListener('click', toggleHandler);
+    });
+
+    function toggleHandler() {
+        library.toggleRead(this, this.getAttribute('data-book'));
     }
 }
 

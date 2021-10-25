@@ -33,12 +33,19 @@ Library.prototype.displayCatalogue = function () {
         keys.forEach(key => {
             const cell = row.insertCell();
             cell.classList.add(`td-${key}`);
+            cell.setAttribute('data-book', book.title);
             cell.innerText = book[key];
         });
 
         const cell = row.insertCell();
         cell.innerHTML = `<button class="btn-delete" data-book="${book.title}">Delete</button>`;
     });
+}
+
+Library.prototype.toggleRead = function (el, title) {
+    const found = this.catalogue.find(book => book.title === title);
+    found.toggleRead();
+    el.innerText = found.read;
 }
 
 export { Library };
