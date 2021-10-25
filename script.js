@@ -15,9 +15,23 @@ library.addBookToLibrary(iliad);
 library.addBookToLibrary(odyssey);
 library.addBookToLibrary(nineteenEightyFour);
 library.displayCatalogue();
+attachDeleteBtnEventListeners();
 
 function setDisplay(element, value = 'none') {
     element.style.display = value;
+}
+
+function attachDeleteBtnEventListeners() {
+    const delBtns = Array.from(document.getElementsByClassName('btn-delete'));
+    delBtns.forEach(btn => {
+        btn.addEventListener('click', deleteBookBtn);
+    });
+    function deleteBookBtn() {
+        const book = this.getAttribute('data-book');
+        library.remBookFromLibrary(book);
+        library.displayUpdate();
+        attachDeleteBtnEventListeners();
+    }
 }
 
 function attachEventListeners() {
@@ -29,8 +43,8 @@ function submitNewBook(e) {
     e.preventDefault();
     const newBook = new Book(...getFormInput());
     library.addBookToLibrary(newBook);
-    library.displayClear();
-    library.displayCatalogue();
+    library.displayUpdate();
+    attachDeleteBtnEventListeners();
     closeModal();
 }
 

@@ -128,3 +128,10 @@ td {
     height: 30px;
     margin-left: 30px;
 }
+
+.btn-delete {
+    background-color: tomato;
+    color: rgb(0,0,0);
+    margin-left: 12px;
+    box-shadow: none;
+}
