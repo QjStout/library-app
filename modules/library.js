@@ -32,9 +32,9 @@ Library.prototype.displayCatalogue = function () {
         
         keys.forEach(key => {
             const cell = row.insertCell();
+            cell.classList.add(`td-${key}`);
             cell.innerText = book[key];
         });
-
 
         const cell = row.insertCell();
         cell.innerHTML = `<button class="btn-delete" data-book="${book.title}">Delete</button>`;

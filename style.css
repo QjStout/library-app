@@ -23,6 +23,7 @@ button {
 button:hover {
     transform: scale(1.1);
     box-shadow: 5px 6px 5px 0px rgba(204,204,204,0.8);
+    cursor: pointer;
 }
 
 button:active {
@@ -85,7 +86,8 @@ hr {
 table {
     margin-top: 1rem;
     border-collapse: collapse;
-    width: 500px;
+    min-width: 500px;
+    max-width: 1000px;
     text-align: left;
 }
 
@@ -134,4 +136,14 @@ td {
     color: rgb(0,0,0);
     margin-left: 12px;
     box-shadow: none;
+}
+
+.th-center, .td-read, .td-pages {
+    text-align: center;
+}
+
+.td-read:hover {
+    transform: scale(1.1);
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
 }
